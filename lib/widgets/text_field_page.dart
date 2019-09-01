@@ -14,6 +14,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
   String textOnChange;
   String textOnSubmit;
 
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -30,7 +31,8 @@ class _TextFieldPageState extends State<TextFieldPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-
+                creator("Entrez votre prénom", TextInputType.text),
+                creator("Entrez votre age", TextInputType.number),
               ],
             )
           ),
@@ -52,7 +54,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
     });
   }
 
-  List<Widget> creator(String title, TextInputType type) {
+  Widget creator(String title, TextInputType type) {
     List<Widget> l = [];
     Column column = Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -63,11 +65,19 @@ class _TextFieldPageState extends State<TextFieldPage> {
               (string) => textOnSubmitted(string),
           keyboardType: (type)?? TextInputType.text,
         ),
+        SizedBox(
+          height: 10.0,
+        ),
         CustomText((textOnChange==null)? "" : "Le texte changé est : $textOnChange", weight: FontWeight.bold, factor: 1.5,),
+        SizedBox(
+          height: 10.0,
+        ),
         CustomText((textOnSubmit==null)? "" : "Le texte soumis est : $textOnSubmit", style: FontStyle.italic, color: Colors.blueAccent,),
+        SizedBox(
+          height: 10.0,
+        ),
       ],
     );
-    l.add(column);
+    return column;
   }
-
 }
