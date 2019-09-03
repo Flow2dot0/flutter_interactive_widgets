@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_interactive_widgets/widgets/custom_text.dart';
 import 'package:flutter_interactive_widgets/widgets/text_field_page.dart';
+import 'package:flutter_interactive_widgets/widgets/check_box_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,6 +37,12 @@ class Main extends StatelessWidget {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => TextFieldPage()));
                   },
                   child: Text("Go the TextField")
+              ),
+              FlatButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => CheckBoxPage()));
+                  },
+                  child: Text("Go the Checkbox")
               )
             ],
           ),
